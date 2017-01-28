@@ -1,0 +1,211 @@
+{{!< default}} 
+
+    {{#post}}
+    <div class="ms-Grid ms-bgColor-white">
+        <div class="ms-Grid-Row" style="padding:10px 10px;">
+            <div class="ms-Grid-Row post-breadcrum">
+                {{> "breadcrumb"}}
+            </div>
+            <div class="ms-Grid-Row">
+                <h1 class="ms-font-su ms-fontWeight-semilight" itemprop="headline">
+                    <a class="" 
+                        href="{{{url}}}" rel="bookmark">
+                        {{title}}
+                    </a>
+                </h1>    
+            </div>
+            <div class="ms-Grid-Row">
+                <div class="ms-Grid-col ms-u-sm6 ms-u-md6 ms-u-lg6">
+                    <p class="ms-font-m ms-fontWeight-light" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">
+                        Posted on {{date format='DD MMM YYYY'}}
+                    </p>
+                </div>
+                <div class="ms-Grid-col ms-u-sm6 ms-u-md6 ms-u-lg6">
+                    <p class="ms-font-m post-social-share">
+                        {{! TODO -- include share links }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="ms-Grid-Row post-author-info">
+                {{!--<div class="ms-Grid-col ms-u-sm4 ms-u-md3 ms-u-lg2 author-image">
+                    <img>Image 
+                </div>
+                <div class="ms-Grid-col ms-u-sm8 ms-u-md9 ms-u-lg10 info">
+                    name<p>Job Tile</p>
+                </div>--}}
+                <div class="ms-Persona ms-Persona--sm">
+                    {{#author}}
+                        
+                        <div class="ms-Persona-imageArea">
+                            <img class="ms-Persona-image" src="{{image}}">
+                        </div>
+                        <a href="{{url}}">
+                            <div class="ms-Persona-details">
+                                <div class="ms-Persona-primaryText">{{name}}</div>
+                                {{#if twitter}}
+                                    <div class="ms-Persona-secondaryText">
+                                        tweets as {{twitter}}
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </a>
+                    {{/author}}
+                </div>
+            </div>
+
+            <div class="ms-Grid-Row post-content ms-font-l">
+                <p>{{content}}</p>
+            </div>
+            
+        </div>
+    <hr/>
+            <div class="ms-Grid ms-fontSize-l ms-font-xls">
+                <!-- Tags and Share lg -->
+                    <div class="ms-Row ms-u-hiddenLgDown" style="padding: 10px 0px 50px 0px;">
+                        <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg6" style="float:left">
+                            <span style="float:left">
+                                {{#if tags}}
+                                <button class="ms-Button" style="color:white;background-color:#767676">Tags</button>
+                                    {{#foreach tags}} 
+                                        <a href="{{url}}"><button class="ms-Button ms-Button--primary" style="color:white;">{{name}}</button></a> 
+                                    {{/foreach}}
+                                {{/if}}
+                            </span>
+                        </div>
+
+                        <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg6" style="float:right">
+                            <span style="float:right">
+                                
+                                <a target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}&related=geekwhocode&via=Geekwhocode&hashtags=Geekwhocode" target="_blank">
+                                    <button class="ms-Button ms-font-m-plus ms-Button--primary">
+                                        <i class="fa fa-twitter" style="color:white;"></i>
+                                    </button>
+                                </a>
+                                <a target="_blank" href="https://www.facebook.com/dialog/share?app_id=266480017049930&href={{url absolute="true"}}&display=popup&redirect_uri={{url absolute="true"}}&quote={{title}}&hashtag=Geekwhocode" target="_blank">
+                                    <button class="ms-Button ms-font-m-plus ms-Button--primary">
+                                        <i class="fa fa-facebook" style="color:white;"></i>
+                                    </button>
+                                </a>
+                                <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://geekwhocode.in{{url}}&&source=http://geekwhocode.in&title={{title}}&summary={{excerpt}}=Geekwhocode" target="_blank">
+                                    <button class="ms-Button ms-font-m-plus ms-Button--primary">
+                                        <i class="fa fa-linkedin" style="color:white;"> </i>
+                                    </button>
+                                </a>
+                            </span>  
+                        </div>  
+                    </div>
+            <!-- End Tags and Share lg -->
+
+            <!-- Tags and Share sm md -->
+                    <div class="ms-Row ms-u-hiddenXlUp" style="padding:10px 10px;">
+                        {{#if tags}}
+                        <button class="ms-Button" style="color:white;background-color:#767676">Tags</button>
+                            {{#foreach tags}} 
+                                <a href="{{url}}"><button class="ms-Button ms-Button--primary" style="color:white;">{{name}}</button></a> 
+                            {{/foreach}}
+                        {{/if}}
+                    </div>
+                    <div class="ms-Row ms-u-hiddenXlUp" style="padding:10px 10px;">
+                        
+                        <a target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}&related=geekwhocode&via=Geekwhocode&hashtags=Geekwhocode" target="_blank">
+                            <button class="ms-Button ms-font-m-plus ms-Button--primary" >
+                                <i class="fa fa-twitter" style="color:white;"></i>
+                            </button>
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/dialog/share?app_id=266480017049930&href={{url absolute="true"}}&display=popup&redirect_uri={{url absolute="true"}}&quote={{title}}&hashtag=Geekwhocode" target="_blank">
+                            <button class="ms-Button ms-font-m-plus ms-Button--primary">
+                                <i class="fa fa-facebook" style="color:white;"></i>
+                            </button>
+                        </a>
+                        <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=https://geekwhocode.in{{url}}&&source=http://geekwhocode.in&title={{title}}&summary={{excerpt}}=Geekwhocode" target="_blank">
+                            <button class="ms-Button ms-font-m-plus ms-Button--primary">
+                                <i class="fa fa-linkedin" style="color:white;"> </i>
+                            </button>
+                        </a>
+                    </div>
+            <!-- End Tags and Share lg -->
+            
+            <hr/>
+            <!-- Disqus Comments Box -->
+                <div id="disqus_thread" class="ms-font-l"></div>
+                <script>
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                     */
+                    
+                    var disqus_config = function () {
+                        this.page.url = "{{url absolute="true"}}";  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = "{{url absolute="true"}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    
+                    (function() {  // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        
+                        s.src = '//geekwhocodesblog.disqus.com/embed.js';
+                        
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            <!-- Disqus Comment Box End -->
+
+            <!-- Next and Pervious POst on Lg UP-->
+                    <div class="ms-Grid-row ms-bgColor-neutralTertiary nextprepost ms-u-hiddenLgDown">                
+                        <div class="ms-Grid-col ms-u-sm12 ms-u-md6 ms-u-lg6" style="border-right:1px solid white;">
+                            {{#prev_post}}
+                                <a href="{{url}}">
+                                    <button class="ms-Button">Newer Posts</button><br/><br/>
+                                    {{title}}    
+                                </a>
+                                {{else}}
+                                No more posts!<br/><br/><br/><br/>
+                            {{/prev_post}}
+                        </div>
+
+                        <div class="ms-Grid-col ms-u-sm12 ms-u-md6 ms-u-lg6">
+                            {{#next_post}}
+                                <a href="{{url}}">
+                                    <button class="ms-Button">You might enjoy</button><br/><br/>
+                                    {{title}}   
+                                </a>
+                                {{else}}
+                                No more posts!<br/><br/><br/><br/>
+                            {{/next_post}} 
+                        </div>
+                    </div>    
+            <!-- End Next and Previous POst Lg UP-->
+
+
+            <!-- Next and Pervious POst on Lg DOWN-->
+                    <div class="ms-Grid-row ms-bgColor-neutralTertiary nextprepost ms-u-hiddenXlUp">                
+                        <div class="ms-Grid-col ms-u-sm5 ms-u-md6 ms-u-lg6" style="border-right:1px solid white;">
+                            {{#prev_post}}
+                                <a href="{{url}}">
+                                    <button class="ms-Button" style="margin-bottom:5px;">Newer Posts</button><br/>
+                                    {{title}}    
+                                </a>
+                                {{else}}
+                                No more posts!<br/><br/><br/><br/>
+                            {{/prev_post}}
+                        </div>
+
+                        <div class="ms-Grid-col ms-u-sm7 ms-u-md6 ms-u-lg6">
+                            {{#next_post}}
+                                <a href="{{url}}">
+                                    <button class="ms-Button" style="margin-bottom:5px;">You might enjoy</button><br/>
+                                    {{title}}
+                                </a>
+                                {{else}}
+                                No more posts!<br/><br/><br/><br/>
+                            {{/next_post}} 
+                        </div>
+                    </div>    
+            
+            <!-- End Next and Previous POst Lg DOWN-->
+            </div>
+        </div>
+    {{/post}}

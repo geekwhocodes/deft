@@ -1,0 +1,29 @@
+{
+  "name": "ghost-fabric-ui",
+  "version": "0.1.0",
+  "description": "Ghost blogging platform theme, simple, responsive",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekwhocodes/ghost-fabric.git"
+  },
+  "keywords": [
+    "ghost",
+    "fabric",
+    "fabric ui",
+    "ghost themes",
+    "ghost blog plaform"
+  ],
+  "author": "Ganesh Raskar <ganeshraskar@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/geekwhocodes/ghost-fabric/issues"
+  },
+  "homepage": "https://github.com/geekwhocodes/ghost-fabric#readme",
+  "dependencies": {
+    
+  }
+}

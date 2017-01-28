@@ -1,0 +1,50 @@
+{{#foreach posts from="1"}}    
+    <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12 posts-loop">
+        <header>
+            <h1 class="ms-font-xl ms-fontWeight-semilight" itemprop="headline">
+                <a class="" href="{{{url}}}" rel="bookmark">{{title}}</a>
+            </h1>
+            <p class="ms-font-m ms-fontWeight-light" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">
+                {{date format='DD MMM YYYY'}}
+            </p>
+            {{!--By {{author}} on --}}
+        </header>
+        <div class="ms-fontSize-l ms-font-l" itemprop="articleBody">
+        <p>{{excerpt}}</p>
+        <div class="featured-post-read-more">
+            <a class="ms-Link" href="{{{url}}}"> 
+                {{!--<button class="btn btn-sm btn-primary">
+                    Read more
+                    <span class="ms-Icon ms-Icon--ChevronRight ms-font-s"
+                        aria-hidden="true">
+                        </span> 
+                </button>--}}
+                <button class="ms-Button ms-Button-Primary">
+                    Read more
+                    <i class="ms-Icon ms-Icon--ChevronRight"></i>
+                </button>
+            </a>
+        </div>
+        </div>
+        <!--
+            {{#if tags}}
+            <div class="ms-font-m" style="padding-bottom:18px;">
+                <b>Tags</b>: {{tags separator=" | "}}
+            </div>
+            {{/if}}
+        -->    
+    </div>
+{{/foreach}}
+   <!-- {{#if pagination}}
+        {{#if prev}}
+        <a class="newer-posts" href="{{page_url prev}}">&larr; Newer Posts</a>
+        {{/if}}
+        {{#if next}}
+        <a class="older-posts" href="{{page_url next}}">Older Posts &rarr;</a>
+        {{/if}}
+        {{page}} of {{pages}}
+    {{/if}}
+-->
+<div class="ms-font-m">
+    {{pagination}}
+</div>

@@ -1,0 +1,43 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+
+{{!-- The main content area on the homepage --}}
+<main id="" class="main-content" role="main">
+    <!-- Blog hero section -->
+    <div class="ms-Grid-row site-hero-bar">
+        <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+            {{!--The blog hero section --}}
+            {{> "hero-section"}}
+        </div>
+    </div>
+    <!-- Blog hero section end -->
+
+    <!-- Blog section-slate 3 section -->
+    <div class="ms-Grid-row site-slate-section-container ms-bgColor-neutralLight">
+        {{!--The blog hero section --}}
+        {{#get "posts" filter="featured:true" limit="3" as |featured|}}
+            {{#foreach featured from="2"}}
+                {{> "slate-section-article"}}
+            {{/foreach}}
+        {{else}}
+            <p>No featured posts...</p>
+        {{/get}}
+    </div>
+    <!-- Blog section-slate 3 section end -->
+
+    <div class="ms-Grid">
+        <div class="ms-Grid-row">
+            {{!-- The tag below includes the post loop - partials/loop.hbs --}}
+            <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12 post-loop-container">
+                <h2 class="ms-font-xxl">Most Recent posts</h2>
+                {{> "home-post-loop"}}
+            </div>
+            {{!--<div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg3 post-loop-container">
+                <button class="btn">Subscribe</button>
+                {{> "loop"}}
+            </div>--}}
+        </div>
+    </div>
+
+</main>

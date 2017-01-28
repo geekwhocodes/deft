@@ -1,0 +1,30 @@
+<div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg4 slate-article">
+    <article class="{{post_class}}">
+        <h1 class="ms-font-xxl ms-fontColor-white" 
+                itemprop="headline">
+            <a class="" href="{{{url}}}" 
+                rel="bookmark">{{title}}</a>
+        </h1>
+        <p>
+            <span class="ms-font-m" 
+                datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">
+                {{date format='DD MMM YYYY'}}
+            </span>
+        </p>
+        <p class="ms-font-m-plus">{{excerpt}}</p>
+        <div class="post-author">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="featured-post-read-more">
+            <a class="ms-Link" href="{{{url}}}"> 
+                <button class="btn btn-primary">
+                    Read more
+                    <span class="ms-Icon ms-Icon--ChevronRight ms-font-l"
+                        aria-hidden="true">
+                        </span> 
+                </button>
+            </a>
+        </div>
+    </article>
+</div>

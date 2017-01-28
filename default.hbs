@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Brand icon --}}
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "lib/fabric-ui-core/fabric-ui-core.min.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "lib/fabric-ui-core/fabric-ui-components.min.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "lib/bootstrap/css/bootstrap.min.css"}}" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" async defer>
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}} ">
+    {{!-- The blog navigation --}}
+    {{> "blog-navigation"}}
+
+    <div class="ms-Grid">
+        <div class="ms-Grid-row main-content-wrapper">
+            <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+                {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+                {{{body}}}
+            </div>
+        </div>
+        <div class="ms-Grid-row footer ms-bgColor-black ms-fontColor-neutralLighter">
+            <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+                {{!-- The tiny footer at the very bottom --}}
+                <footer class="site-footer clearfix">
+                    <span class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</span>
+                    <span class="poweredby">Made with ❤ and <a target="_blank" href="http://dev.office.com/fabric">Fabric</a></span>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{ghost_foot}}
+    {{!-- Fitvids makes video embeds responsive and awesome --}}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "lib/bootstrap/js/bootstrap.min.js"}}"></script>
+        <script type="text/javascript" src="{{asset "js/app.js"}}"></script>
+    {{!-- The main JavaScript file for Casper --}}
+    <script type="text/javascript" src="{{asset "js/fabric-ui.min.js"}}"></script>
+
+</body>
+</html>

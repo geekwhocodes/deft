@@ -1,0 +1,41 @@
+<section class="ms-Grid-row section hero-bar-wrapper hero-bar-wrapper-overlay"
+    {{#if @blog.cover}}
+        style="background: url('{{@blog.cover}}') center center no-repeat;background-size: cover;"
+    {{/if}}>
+    {{!--<div id="hero-bar-wrapper-overlay"></div>--}}
+    <div class="ms-Grid-col ms-u-sm12 ms-u-mg12 ms-u-lg12 ms-font-su blog-title">
+        {{@blog.title}}
+    </div>
+    <div class="ms-Grid-col ms-u-sm12 ms-u-mg12 ms-u-lg12 ms-font-xl blog-description">
+        {{@blog.description}}
+    </div>
+
+    <article class="ms-Grid-col ms-u-sm12 ms-u-mg12 ms-u-lg12 featured-post">
+        {{#get "posts" filter="featured:true" limit="1" as |featured|}}
+            {{#foreach featured from="1"}}
+                <h1 class="ms-font-xxl ms-fontColor-white" itemprop="headline"><a class="" href="{{{url}}}" rel="bookmark">{{title}}</a></h1>
+                <p>
+                    <span class="ms-font-m" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">
+                        {{date format='DD MMM YYYY'}}
+                    </span>
+                </p>
+                <p class="ms-font-m-plus">{{excerpt}}</p>
+                <div class="post-author">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="featured-post-read-more">
+                    <a class="ms-Link" href="{{{url}}}"> 
+                        <button class="btn btn-primary">
+                            Read more
+                            <span class="ms-Icon ms-Icon--ChevronRight ms-font-l"
+                                aria-hidden="true">
+                                </span> 
+                        </button>
+                    </a>
+                </div>
+            {{/foreach}}
+        {{/get}}
+    </article>
+
+</section>
