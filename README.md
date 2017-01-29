@@ -5,4 +5,4 @@ Ghost blogging platform theme. simple. responsive. cool.
 Clone or download zip file extract it to ghost's theme directory and you are done. > boom.
 
 ## Demo
-View demo http://geekwhocodes.me
+View demo <a href="http://geekwhocodes.me" target="_blank">here</a>
