@@ -16,7 +16,7 @@
     <!-- Blog section-slate 3 section -->
     <div class="ms-Grid-row site-slate-section-container ms-bgColor-neutralLight">
         {{!--The blog hero section --}}
-        {{#get "posts" filter="featured:true" limit="3" as |featured|}}
+        {{#get "posts" filter="featured:true" limit="4" as |featured|}}
             {{#foreach featured from="2"}}
                 {{> "slate-section-article"}}
             {{/foreach}}
